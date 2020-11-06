@@ -1,4 +1,6 @@
-(Forked from https://github.com/crisward/mailer but updated to be compatible with crystal 0.35.1  aka I did not write this. Maintainence only, fork away.)
+- Forked from crisward/mailer. 
+- Updated to be compatible with crystal 0.35.1
+- I added a Mailer::Message.replyTo method because I needed it.
 
 # Mailer
 
