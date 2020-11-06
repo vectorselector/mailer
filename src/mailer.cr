@@ -10,6 +10,7 @@ require "http"
 # email.to("them@somedomain.com","their_name")
 # email.from = "you@yourdomain.com"
 # email.subject = "Hello"
+# email.replyTo = "bob@domain.com" which is a custom vectorSelector-added thingie because crisward/mailer didn't have it and we need it.
 # email.text = "Some plain text messaeg"
 # email.html = "<p>Some html message <img src='cid:logo.jpg'></p>"
 # email.attachment = Mailer::Attachment.new(filename: "test.pdf" , path: "./spec/test.pdf")
@@ -60,8 +61,8 @@ module Mailer
 
   class Message
     @from = ""
-    setter subject, text, html, from = ""
-    getter to, cc, bcc, from, subject, text, html, attachments, inline
+    setter subject, replyTo, text, html, from = ""
+    getter to, cc, bcc, from, subject, replyTo, text, html, attachments, inline
 
     def initialize
       @to = [] of Recipient
@@ -69,6 +70,7 @@ module Mailer
       @bcc = [] of Recipient
       @from = ""
       @subject = "no subject"
+      @replyTo = ""
       @text = ""
       @html = ""
       @attachments = [] of Attachment
@@ -131,6 +133,7 @@ module Mailer
       @bcc << Recipient.new(email,name)
     end
 
+    
     # Add Attachment
     # Can be called mutlple times to add multiple attachments
     #
