@@ -14,7 +14,7 @@ Add this to your application's `shard.yml`:
 ```yaml
 dependencies:
   mailer:
-    github: crisward/mailer
+    github: vectorselector/mailer
 ```
 
 ## Usage
