@@ -40,6 +40,7 @@ require "./provider"
       add m, "cc", cc if cc.size > 0
       add m, "bcc", bcc if bcc.size > 0
       add m, "subject", message.subject
+      add m, "h:Reply-To", message.replyTo if message.replyTo
       add m, "text", text if text.size > 0
       add m, "html", html if html.size > 0
       if attachments.size > 0
