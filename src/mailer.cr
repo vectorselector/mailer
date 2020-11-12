@@ -10,7 +10,7 @@ require "http"
 # email.to("them@somedomain.com","their_name")
 # email.from = "you@yourdomain.com"
 # email.subject = "Hello"
-# email.replyTo = "bob@domain.com" which is a custom vectorSelector-added thingie because crisward/mailer didn't have it and we need it.
+# email.replyTo = "bob@domain.com" Is still missing on sendgrid because I only use mailgun and did not figure out the sendgrid model yet.
 # email.text = "Some plain text messaeg"
 # email.html = "<p>Some html message <img src='cid:logo.jpg'></p>"
 # email.attachment = Mailer::Attachment.new(filename: "test.pdf" , path: "./spec/test.pdf")
