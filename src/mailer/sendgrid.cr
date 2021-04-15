@@ -3,19 +3,20 @@ require "base64"
 
 module Mailer
   class SengridMessagePersonalisation
+    include JSON::Serializable
+    
     def initialize
     end
 
-    JSON.mapping({
-      to:            {type: Array(Recipient), nilable: true},
-      cc:            {type: Array(Recipient), nilable: true},
-      bcc:           {type: Array(Recipient), nilable: true},
-      subject:       {type: String, nilable: true},
-      headers:       {type: Hash(String, String), nilable: true},
-      substitutions: {type: Hash(String, String), nilable: true},
-      custom_args:   {type: Hash(String, String), nilable: true},
-      send_at:       {type: Int64, nilable: true}, # timestamp
-    })
+    property to : Array(Recipient)?
+    property cc : Array(Recipient)?
+    property bcc : Array(Recipient)?
+    property subject : String?
+    property headers : Hash(String, String)?
+    property substitutions : Hash(String, String)?
+    property custom_args : Hash(String, String)?
+    property send_at : Int64?
+
   end
 
   class SendgridContent
