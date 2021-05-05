@@ -32,11 +32,11 @@ module Mailer
   end
 
   class Recipient
+    include JSON::Serializable
+    
+    property email : String?
+    property name : String?
 
-    JSON.mapping({
-      email:{type: String, nilable: true},
-      name:{type: String, nilable: true}
-    })
 
     def to_s
       if @email && @name
