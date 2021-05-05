@@ -20,40 +20,40 @@ module Mailer
   end
 
   class SendgridContent
+    include JSON::Serializable
+    
     def initialize(@type, @value)
     end
 
-    JSON.mapping({
-      type:  {type: String, nilable: true},
-      value: {type: String, nilable: true},
-    })
+    property type : String?
+    property value : String?
+
   end
 
   class SendgridAttachment
+    include JSON::Serializable
+    
     def initialize(@content, @filename, @disposition, @content_id)
     end
+    property type : String?
+    property content : String?
+    property filename : String?
+    property disposition : String?
+    property content_id : String?
 
-    JSON.mapping({
-      type:        {type: String, nilable: true},
-      content:     {type: String, nilable: true},
-      filename:    {type: String, nilable: true},
-      disposition: {type: String, nilable: true}, # inline / attachment
-      content_id:  {type: String, nilable: true}, # cid
-    })
   end
 
   class SengridMessage
+    include JSON::Serializable
+    
     def initialize
     end
-
-    JSON.mapping({
-      personalizations: {type: Array(SengridMessagePersonalisation), nilable: true},
-      from:             {type: Recipient, nilable: true},
-      reply_to:         {type: Recipient, nilable: true},
-      subject:          {type: String, nilable: true},
-      content:          {type: Array(SendgridContent), nilable: true},
-      attachments:      {type: Array(SendgridAttachment), nilable: true},
-    })
+    property personalizations : Array(SengridMessagePersonalisation)?
+    property from : Recipient?
+    property reply_to : Recipient?
+    property subject : String?
+    property content : Array(SendgridContent)?
+    property attachments : Array(SendgridAttachment)?
   end
 
   class Sendgrid < Mailer::Provider
