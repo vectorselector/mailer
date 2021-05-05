@@ -1,9 +1,10 @@
 name: mailer
-version: 0.1.0
+version: 0.2.0
 
 authors:
   - Cris Ward 
+  - vectorSelector (maintainer of fork)
 
-crystal: 0.23.1
+crystal: 0.36.1
 
 license: MIT
